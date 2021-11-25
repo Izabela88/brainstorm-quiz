@@ -1,4 +1,5 @@
 from player import Player
+from questions import Question, load_from_file
 
 
 def handle_menu():
