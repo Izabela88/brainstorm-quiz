@@ -13,17 +13,27 @@ def handle_menu():
     return input("Enter your choice: ")
 
 
+def handle_start_game_menu():
+    start_game_menu = {
+        1: "Start Game",
+    }
+    for key, value in start_game_menu.items():
+        print(f"{key} - {value}")
+    return input("Enter your choice: ")
+
+
 def new_game():
     name = str(input("What is your name?  "))
     player = Player(name)
     print(f"\nHello {player.name}, welcome to BRAINSTORM QUIZ!")
-    print("\nPlease choose a game level")
+    print("\nPlease choose a game level:")
     player.pick_game_level()
     print("\nYou will be presented with 10 questions.")
     print("Enter the appropriate number to answer the question")
     print("Good luck!")
     while True:
-        break
+        handle_start_game_menu()
+   
 
 
 def best_scores():

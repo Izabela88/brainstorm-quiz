@@ -1,7 +1,15 @@
 import json
 import random
-import pprint
-pp = pprint.PrettyPrinter()
+
+class Questions:
+
+    def __init__(self, qty):
+        self.qty = qty
+
+    def draw_questions(self):
+        questions = load_from_file()
+        game_questions = random.choices(questions, k=10)
+        return game_questions
 
 
 class Question:
@@ -14,9 +22,6 @@ class Question:
 
 def load_from_file():
     with open("questions.json","r") as json_file:
-        questions = json.load(json_file)
-        random.choices(questions, k=10)
-        print(questions)
+        return json.load(json_file)
 
-load_from_file()
 
