@@ -1,5 +1,5 @@
 from player import Player
-from questions import Question, load_from_file
+from questions import Questions, load_from_file
 
 
 def handle_menu():
@@ -10,16 +10,22 @@ def handle_menu():
     }
     for key, value in menu.items():
         print(f"{key} - {value}")
-    return input("Enter your choice: ")
+    return int(input("Enter your choice: "))
 
 
-def handle_start_game_menu():
+def start_game_menu():
     start_game_menu = {
         1: "Start Game",
     }
     for key, value in start_game_menu.items():
         print(f"{key} - {value}")
-    return input("Enter your choice: ")
+
+    user_input = int(input("Enter your choice: "))
+
+    if user_input == 1:
+        questions = Questions(10)
+        questions.draw_questions()
+        return questions
 
 
 def new_game():
@@ -32,8 +38,7 @@ def new_game():
     print("Enter the appropriate number to answer the question")
     print("Good luck!")
     while True:
-        handle_start_game_menu()
-   
+        questions = start_game_menu()
 
 
 def best_scores():
