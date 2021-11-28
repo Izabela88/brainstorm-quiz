@@ -37,10 +37,18 @@ def new_game():
     print("\nYou will be presented with 10 questions.")
     print("Enter the appropriate number to answer the question")
     print("Good luck!")
+    questions = start_game_menu()
     while True:
-        questions = start_game_menu()
-        questions.game_questions[0].print_question()
+        next_game_question = questions.next_question()
+        next_game_question.print_question()
+        answer = input("Please type your answer:")
+        if next_game_question.is_answer_correct(answer):
+            continue
+        else:
+            print("Game Over")
+            break
 
+        
 
 def best_scores():
     print("Option 'Best Scores'")

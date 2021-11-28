@@ -14,19 +14,27 @@ class Questions:
             self.game_questions.append(question)
         return self.game_questions
 
+    def next_question(self):
+        return self.game_questions.pop()
+
 
 class Question:
     def __init__(self, question, answers, correct_answer) -> None:
         self.question = question
         self.answers = answers
         self.correct_answer = correct_answer
+        self.answers_mapping = {'a': 0, 'b': 1, 'c': 2, 'd': 3}
     
     def print_question(self):
         print(f"\n{self.question}\n")
-        answers_index = ['a', 'b', 'c', 'd']
+        
         for idx, i in enumerate(self.answers):
-            print(f"{answers_index[idx]}: {i}\n")
-            
+            print(f"{list(self.answers_mapping.keys())[idx]}: {i}\n")
+        
+    def is_answer_correct(self,player_answer):
+        if self.answers_mapping.get(player_answer) == self.correct_answer:
+            return True
+        return False
 
 def load_from_file():
     with open("questions.json", "r") as json_file:
