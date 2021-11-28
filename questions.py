@@ -20,7 +20,13 @@ class Question:
         self.question = question
         self.answers = answers
         self.correct_answer = correct_answer
-
+    
+    def print_question(self):
+        print(f"\n{self.question}\n")
+        answers_index = ['a', 'b', 'c', 'd']
+        for idx, i in enumerate(self.answers):
+            print(f"{answers_index[idx]}: {i}\n")
+            
 
 def load_from_file():
     with open("questions.json", "r") as json_file:

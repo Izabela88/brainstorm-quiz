@@ -14,10 +14,10 @@ def handle_menu():
 
 
 def start_game_menu():
-    start_game_menu = {
+    start_game = {
         1: "Start Game",
     }
-    for key, value in start_game_menu.items():
+    for key, value in start_game.items():
         print(f"{key} - {value}")
 
     user_input = int(input("Enter your choice: "))
@@ -39,6 +39,7 @@ def new_game():
     print("Good luck!")
     while True:
         questions = start_game_menu()
+        questions.game_questions[0].print_question()
 
 
 def best_scores():
