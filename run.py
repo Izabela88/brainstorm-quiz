@@ -42,13 +42,15 @@ def new_game():
         next_game_question = questions.next_question()
         next_game_question.print_question()
         answer = input("Please type your answer:")
+        if answer == "h":
+            next_game_question.lifeline()
+            answer = input("Please type your answer:")
         if next_game_question.is_answer_correct(answer):
             continue
         else:
             print("Game Over")
             break
 
-        
 
 def best_scores():
     print("Option 'Best Scores'")
