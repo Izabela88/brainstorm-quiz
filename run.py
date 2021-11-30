@@ -14,15 +14,10 @@ def handle_menu():
 
 
 def start_game_menu():
-    start_game = {
-        1: "Start Game",
-    }
-    for key, value in start_game.items():
-        print(f"{key} - {value}")
 
-    user_input = int(input("Enter your choice: "))
+    user_input = str(input("TYPE S TO START BRAINSTORM QUIZ: ")).lower()
 
-    if user_input == 1:
+    if user_input == "s":
         questions = Questions(10)
         questions.draw_questions()
         return questions
@@ -32,23 +27,30 @@ def new_game():
     name = str(input("What is your name?  "))
     player = Player(name)
     print(f"\nHello {player.name}, welcome to BRAINSTORM QUIZ!")
-    print("\nPlease choose a game level:")
     player.pick_game_level()
-    print("\nYou will be presented with 10 questions.")
-    print("Enter the appropriate number to answer the question")
-    print("Good luck!")
     questions = start_game_menu()
+    question_number = 1
     while True:
         next_game_question = questions.next_question()
+        print(f"\nQUESTION NO {question_number}:")
         next_game_question.print_question()
+        print(f"\nYou have {player.lifeline_qty} lifeline{'' if player.lifeline_qty == 1 else 's'}.")
         answer = input("Please type your answer:")
         if answer == "h":
-            next_game_question.lifeline()
+            if player.lifeline_qty:
+                player.lifeline_qty -= 1
+                next_game_question.lifeline()
+            else:
+                print("You have no lifelines")   
             answer = input("Please type your answer:")
         if next_game_question.is_answer_correct(answer):
+            question_number += 1
+
+            print("\nGreat! Correct answer!\n")
             continue
         else:
-            print("Game Over")
+            print("\nOh no! Incorrect answer!\n")
+            print("GAME OVER!\n")
             break
 
 
