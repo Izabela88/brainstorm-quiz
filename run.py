@@ -1,5 +1,6 @@
 from player import Player
 from questions import Questions
+# from utility import input_validate(input_text, is_int=False, range_list=None)
 
 
 def handle_menu():
@@ -10,6 +11,7 @@ def handle_menu():
     }
     for key, value in menu.items():
         print(f"{key} - {value}")
+    
     return int(input("Enter your choice: "))
 
 
