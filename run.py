@@ -1,6 +1,8 @@
 from player import Player
 from questions import Questions
 from utility import input_validate
+from sys import stdout
+from time import sleep, time
 
 
 def handle_menu():
@@ -24,6 +26,13 @@ def start_game_menu(player):
         questions.draw_questions()
         return questions
 
+def counting():
+    print("\nLET'S BEGIN!")
+    for i in range(5,0,-1): 
+        stdout.write("\r%d" % i)
+        stdout.flush()
+        sleep(1)
+    stdout.write("\nSTART!\n")
 
 def new_game():
     name = input_validate("\nPLEASE TYPE YOUR NAME: ",is_int=False,range_list=None)
@@ -31,6 +40,7 @@ def new_game():
     print(f"\nHello {player.name}, welcome to BRAINSTORM QUIZ!")
     player.pick_game_level()
     questions = start_game_menu(player)
+    counting()  
     question_number = 1
     while True:
         try:
@@ -78,9 +88,7 @@ def manage_menu_options():
     print("\n***THIS IS THE BRAINSTORM QUIZ***\n")
     print("MENU:")
     while True:
-
         option = int(handle_menu())
-
         if option == 1:
             new_game()
         elif option == 2:
