@@ -9,7 +9,7 @@ class Questions:
 
     def draw_questions(self):
         raw_questions = load_from_file()
-        for i in random.choices(raw_questions, k=self.qty):
+        for i in random.sample(raw_questions, k=self.qty):
             question = Question(i["question"], i["answers"], i["correct_answer"])
             self.game_questions.append(question)
         return self.game_questions
@@ -27,7 +27,6 @@ class Question:
 
     def print_question(self, print_only=None):
         print(f"\n{self.question}\n")
-
         for idx, i in enumerate(self.answers):
             if print_only and idx not in print_only:
                 continue

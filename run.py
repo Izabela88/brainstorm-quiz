@@ -1,6 +1,6 @@
 from player import Player
 from questions import Questions
-# from utility import input_validate(input_text, is_int=False, range_list=None)
+from utility import input_validate
 
 
 def handle_menu():
@@ -12,18 +12,11 @@ def handle_menu():
     for key, value in menu.items():
         print(f"{key} - {value}")
     
-    return int(input("Enter your choice: "))
-
+    return input_validate("\nENTER YOUR CHOICE: ",is_int=True,range_list=[1,2,3])
 
 def start_game_menu(player):
     while True:
-        try:
-            user_input = input("TYPE S TO START BRAINSTORM QUIZ: ").lower()
-            if user_input != "s":
-                raise ValueError
-        except ValueError:
-            print("Please type right letter")
-            continue
+        input_validate("TYPE S TO START BRAINSTORM QUIZ: ",is_int=False,range_list=["S"])
         if player.game_level == 1:
             questions = Questions(10)
         else:
@@ -33,7 +26,7 @@ def start_game_menu(player):
 
 
 def new_game():
-    name = input("\nWhat is your name?  ")
+    name = input_validate("\nPLEASE TYPE YOUR NAME: ",is_int=False,range_list=None)
     player = Player(name)
     print(f"\nHello {player.name}, welcome to BRAINSTORM QUIZ!")
     player.pick_game_level()
@@ -48,26 +41,28 @@ def new_game():
             print(f"YOUR FINAL SCORE IS: {player.score}\n")
             # TODO:score board implementation
             break
-        print("----------------------------------------------")
-        print(f"\nQUESTION NO {question_number}:")
+        print("---------------------------------------------------------------")
+        print(f"\nQUESTION NO. {question_number}:")
         next_game_question.print_question()
-        print(
-            f"YOU HAVE {player.lifeline_qty} LIFELINE{'' if player.lifeline_qty == 1 else 'S'}"
-        )
-        answer = input("\nYOUR ANSWER IS:").lower()
+        if player.lifeline_qty >= 1:
+            print(
+                f"YOU HAVE {player.lifeline_qty} LIFELINE{'' if player.lifeline_qty == 1 else 'S'}"
+            )
+        
+        answer = input_validate("\nYOUR ANSWER IS: ",is_int=False,range_list=["a","b","c","d","H"])
 
-        if answer == "h":
+        if answer == "H":
             if player.lifeline_qty:
                 player.lifeline_qty -= 1
                 next_game_question.lifeline()
-            else:
-                print("OUCH! YOU HAVE NO LIFELINES!")
-            answer = input("YOUR ANSWER IS:").lower()
+            if player.lifeline_qty == 0:
+                print("OUCH! YOU DON'T HAVE ANY LIFELINES!")
+            answer = input_validate("\nYOUR ANSWER IS: ",is_int=False,range_list=["a","b","c","d"])
         if next_game_question.is_answer_correct(answer):
             question_number += 1
             print("\nGREAT! CORRECT ANSWER!\n")
             player.score += 10
-            print(f"YOU HAVE {player.score} POINTS ")
+            print(f"AWSOME! YOU HAVE {player.score} POINTS!")
             continue
         else:
             print("\nOH NO! INCORRECT ANSWER!\n")
@@ -83,19 +78,15 @@ def manage_menu_options():
     print("\n***THIS IS THE BRAINSTORM QUIZ***\n")
     print("MENU:")
     while True:
-        try:
-            option = int(handle_menu())
-        except ValueError:
-            print("Please enter a valid number. From 1 to 3.")
-            continue
+
+        option = int(handle_menu())
+
         if option == 1:
             new_game()
         elif option == 2:
             best_scores()
         elif option == 3:
-            break
-        else:
-            print("Please enter a number between 1 and 3.")
+            break     
 
     print("Thank you for the Game!")
 
