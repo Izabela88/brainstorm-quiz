@@ -1,5 +1,7 @@
 from time import time
 from utility import input_validate
+import datetime
+
 
 
 class Player:
@@ -10,6 +12,7 @@ class Player:
         self.lifeline_qty = 0
         self.start_game_time = None
         self.game_time = None
+
 
     def pick_game_level(self):
         print("\nPlease choose a game level: \n")
@@ -39,4 +42,5 @@ class Player:
             print("To use your lifeline press 'H'.")
             print("GOOD LUCK!\n")
             return level
+        
         

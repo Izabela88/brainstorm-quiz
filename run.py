@@ -2,8 +2,8 @@ from player import Player
 from questions import Questions
 from utility import input_validate
 from sys import stdout
-from time import sleep, time
-
+from time import sleep
+import time
 
 def handle_menu():
     menu = {
@@ -26,7 +26,7 @@ def start_game_menu(player):
         questions.draw_questions()
         return questions
 
-def counting():
+def time_counting():
     print("\nLET'S BEGIN!")
     for i in range(5,0,-1): 
         stdout.write("\r%d" % i)
@@ -40,7 +40,8 @@ def new_game():
     print(f"\nHello {player.name}, welcome to BRAINSTORM QUIZ!")
     player.pick_game_level()
     questions = start_game_menu(player)
-    counting()  
+    time_counting()
+    player.start_game_time = time.time()
     question_number = 1
     while True:
         try:
@@ -48,7 +49,10 @@ def new_game():
         except IndexError:
             print("\nCONGRATULATIONS! YOU HAVE JUST COMPLETED BRAINSTORM QUIZ!")
             print("THANK YOU FOR THE GAME!\n")
-            print(f"YOUR FINAL SCORE IS: {player.score}\n")
+            print(f"{player.name} your final score is: {player.score}\n")
+            player.game_time = time.time() - player.start_game_time
+            print(f"{player.name} your game time is: ")
+            print(time.strftime("%H:%M:%S\n", time.gmtime(player.game_time)))
             # TODO:score board implementation
             break
         print("---------------------------------------------------------------")
