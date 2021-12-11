@@ -43,7 +43,9 @@ def time_counting():
 
 
 def new_game():
-    name = input_validate("\nPLEASE TYPE YOUR NAME: ", is_int=False, range_list=None)
+    name = input_validate(
+        "\nPLEASE TYPE YOUR NAME: ", is_int=False, range_list=None, case_sensitive=True
+    )
     player = Player(name)
     print(f"\nHello {player.name}, welcome to BRAINSTORM QUIZ!")
     player.pick_game_level()
@@ -111,7 +113,8 @@ def new_game():
 
 
 def best_scores():
-    pass
+    best_scores = ScoreBoard()
+    best_scores.show_best_scores()
 
 
 def manage_menu_options():

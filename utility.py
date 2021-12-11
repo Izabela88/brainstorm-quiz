@@ -1,6 +1,8 @@
-def input_validate(input_text, is_int=False, range_list=None):
+def input_validate(input_text, is_int=False, range_list=None, case_sensitive=False):
     while True:
-        user_input = input(input_text).lower()
+        user_input = input(input_text)
+        if case_sensitive is False:
+            user_input = user_input.lower()
         if len(user_input) == 0:
             print("\nThis field can not be blank!\n")
             continue

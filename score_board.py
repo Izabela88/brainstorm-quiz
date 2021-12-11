@@ -1,5 +1,6 @@
 import json
 import uuid
+import time
 
 
 class ScoreBoard:
@@ -39,6 +40,20 @@ class ScoreBoard:
         best_scores[game_level] = level_scores_sorted
         self.save_best_scores(best_scores)
         return is_qualified
+
+    def show_best_scores(self):
+
+        best_scores = self.get_best_scores()
+        for k, v in best_scores.items():
+            print("--------------------")
+            print(f"\n10 {k.upper()} LEVEL BEST SCORES:\n")
+            for idx, i in enumerate(v, 1):
+                time_formatted = time.strftime(
+                    "%H:%M:%S\n", time.gmtime(i["player_game_time"])
+                )
+                print(
+                    f"{idx}. Name: {i['player_name']} --- Score: {i['player_score']} --- Time: {time_formatted}"
+                )
 
     @staticmethod
     def get_best_scores():
