@@ -1,10 +1,8 @@
-from time import time
 from utility import input_validate
-import json
 
 
 class Player:
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
         self.score = 0
         self.game_level = None
@@ -12,7 +10,7 @@ class Player:
         self.start_game_time = None
         self.game_time = None
 
-    def pick_game_level(self):
+    def pick_game_level(self) -> str:
         print("\nPlease choose a game level: \n")
         level_menu = {
             1: "normal",
@@ -37,7 +35,8 @@ class Player:
             print(f"\nYou will be presented with {questions_qty} questions.")
             print("Enter the appropriate number to answer the question.")
             print(
-                f"In case of trouble, you can use {self.lifeline_qty} lifelines to remove two wrong answers."
+                "In case of trouble, you can use"
+                f" {self.lifeline_qty} lifelines to remove two wrong answers."
             )
             print("To use your lifeline press 'h'.")
             print("GOOD LUCK!\n")
