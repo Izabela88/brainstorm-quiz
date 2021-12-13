@@ -11,8 +11,7 @@ class Questions:
     def draw_questions(self) -> None:
         raw_questions = load_from_file()
         for i in random.sample(raw_questions, k=self.qty):
-            question = Question(i["question"], i["answers"], 
-            i["correct_answer"])
+            question = Question(i["question"], i["answers"], i["correct_answer"])
             self.game_questions.append(question)
         return self.game_questions
 
@@ -44,7 +43,7 @@ class Question:
         for idx, _ in enumerate(answers_copy):
             answers_copy[idx] = idx
         incorrect_answers = list(set(answers_copy) - {self.correct_answer})
-        lifeline_answers = random.choices(incorrect_answers, k=1)
+        lifeline_answers = random.sample(incorrect_answers, k=1)
         lifeline_answers.append(self.correct_answer)
         self.print_question(lifeline_answers)
 

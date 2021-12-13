@@ -8,35 +8,47 @@ from utility import input_validate
 from rich import print
 from rich.panel import Panel
 from rich.console import Console
-from rich.columns import Columns
 from rich.markdown import Markdown
 from rich.theme import Theme
 from rich.prompt import Confirm
 
 
-custom_theme = Theme({
-    "info": "bold dark_blue",
-    "warning": "bold yellow1",
-    "danger": "bold red",
-    "general": "bold dark_violet",
-    "correct": "chartreuse3",
-})
+custom_theme = Theme(
+    {
+        "info": "bold dark_blue",
+        "warning": "bold yellow1",
+        "danger": "bold red",
+        "general": "bold dark_violet",
+        "correct": "chartreuse3",
+    }
+)
 
 console = Console(theme=custom_theme)
 
+q_title = """
+# *** THIS IS THE BRAINSTORM QUIZ ***
+"""
+
 md1 = """
-# *** THIS IS THE BRAINSTORM QUIZ!!! *** 
-"""
-md2 = """
-# Your goal is to collect as many points as possible. 
-# To achieve that, you have to answer all the questions, but be careful! 
-# Game time also counts! Let's start !!!
+# Your goal is to collect as many points as possible.
+# To become a Brainstorm King, you have to answer all the questions.
+# But be careful! 
+# The total playing time is also counts! HAVE FUN!
 """
 
-panel_1 = Panel.fit(Markdown(md1),width=60)
-panel_2 = Panel.fit(Markdown(md2), title="Become a champion!",width=60)
-console.print(Columns([panel_1, panel_2]))
+def run_brainstorm():
+    while True:
+        panel_title = Panel.fit(Markdown(q_title, justify="center"), width=60)
+        panel_1 = Panel.fit(Markdown(md1, justify="center"), width=60,
+        title="RULES",subtitle="[danger]PRESS ENTER TO BEGIN")
+        console.print(panel_title, style="warning")
+        console.print(panel_1,style="info")
 
+        enter_game = input()
+        if len(enter_game) > 0:
+            console.print("Please press ENTER to start game!",style="danger",justify="left")
+            continue
+        manage_menu_options()
 
 def handle_menu() -> int:
     menu = {
@@ -46,20 +58,20 @@ def handle_menu() -> int:
     }
     console.print("\nMENU:\n", style="general")
     for key, value in menu.items():
-        print(f"{key} - {value.upper()}")
-    
+        print(f"{key} - {value.upper()}\n")
+
     return input_validate(
-        "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3]
-    )
-    
+        "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3])
+
 
 def start_game_menu(player: Player) -> Questions:
     while True:
         input_validate(
-            "\nTYPE s TO START BRAINSTORM QUIZ: ", is_int=False, range_list=["s"]
+            "\nTYPE s TO START BRAINSTORM QUIZ: ", 
+            is_int=False, range_list=["s"]
         )
         if player.game_level == "normal":
-            questions = Questions(2)
+            questions = Questions(3)
         else:
             questions = Questions(20)
         questions.draw_questions()
@@ -91,12 +103,12 @@ def new_game() -> bool:
     player.start_game_time = time.time()
     question_number = 1
     while True:
-        c_msg = "CONGRATULATIONS! YOU HAVE JUST COMPLETED BRAINSTORM QUIZ!\n"
+        c_msg = "CONGRATULATIONS! YOU BECOME A KING OF BRAINSTORM QUIZ!\n"
         emo = "\n:smiling_face_with_sunglasses: "
         try:
             next_game_question = questions.next_question()
         except IndexError:
-            console.print(emo + c_msg , style="gold1")
+            console.print(emo + c_msg, style="gold1")
             final_results(player)
             save_score(player)
             q = Confirm.ask("Do you want to play again? ")
@@ -108,8 +120,10 @@ def new_game() -> bool:
         next_game_question.print_question()
 
         if player.lifeline_qty >= 1:
-            lifeline_suffix = "" if player.lifeline_qty == 1 else "S"
-            console.print(f"[warning]YOU HAVE {player.lifeline_qty} LIFELINE{lifeline_suffix}")
+            l_suffix = "" if player.lifeline_qty == 1 else "S"
+            console.print(
+                f"[warning]YOU HAVE {player.lifeline_qty} LIFELINE{l_suffix}"
+            )
 
         answer = input_validate(
             "\nYOUR ANSWER IS: ",
@@ -121,7 +135,8 @@ def new_game() -> bool:
                 player.lifeline_qty -= 1
                 next_game_question.lifeline()
             if player.lifeline_qty == 0:
-                console.print("OUCH! YOU DON'T HAVE ANY LIFELINES!",style="danger")
+                console.print("OUCH! YOU DON'T HAVE ANY LIFELINES!", 
+                style="danger")
             answer = input_validate(
                 "\nYOUR ANSWER IS: ",
                 is_int=False,
@@ -156,7 +171,7 @@ def final_results(player) -> None:
     player.game_time = time.time() - player.start_game_time
     t = time.strftime("[info]%H:%M:%S\n", time.gmtime(player.game_time))
     console.print(f"[info]{player.name} YOUR GAME TIME: " + t)
-    
+
 
 def best_scores() -> None:
     best_scores = ScoreBoard()
@@ -175,7 +190,6 @@ def manage_menu_options() -> None:
         elif option == 3:
             break
 
-    
 
 if __name__ == "__main__":
-    manage_menu_options()
+    run_brainstorm()

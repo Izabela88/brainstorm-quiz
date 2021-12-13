@@ -46,6 +46,6 @@ class Player:
             s4 = " To use your lifeline press 'h'."
             s5 = " GOOD LUCK!"
             s6 = f"\nYou picked level: '{level_menu[level].upper()}'"
-            print(Panel.fit(Markdown(s6), width=60))
-            print(Panel.fit(Markdown(s1 + s2 + s3 + s4 + s5 ),width=60))
+            print(Panel.fit(Markdown(s6, justify="center"), width=60))
+            print(Panel.fit(Markdown(s1 + s2 + s3 + s4 + s5,justify="center"), width=60))
             return level_menu[level]

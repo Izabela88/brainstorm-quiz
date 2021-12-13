@@ -47,8 +47,13 @@ class ScoreBoard:
         elif self.score == lowest_score and self.game_time < highest_time:
             level_scores_sorted.pop()
             is_qualified = True
+        
         best_scores[self.game_level] = level_scores_sorted
         self.save_best_scores(best_scores)
+        if is_qualified == False:
+            print(f"\nWell...{self.player_name} you did not qualify for best scores board this time.\n")
+        else:
+            print(f"\nYAY! {self.player_name} you have qualified for best scores board!\n")
         return is_qualified
 
     def show_best_scores(self) -> None:
