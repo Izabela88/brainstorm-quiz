@@ -11,9 +11,8 @@ class Questions:
     def draw_questions(self) -> None:
         raw_questions = load_from_file()
         for i in random.sample(raw_questions, k=self.qty):
-            question = Question(
-                i["question"], i["answers"], i["correct_answer"]
-            )
+            question = Question(i["question"], i["answers"], 
+            i["correct_answer"])
             self.game_questions.append(question)
         return self.game_questions
 
@@ -22,9 +21,7 @@ class Questions:
 
 
 class Question:
-    def __init__(
-        self, question: str, answers: List[str], correct_answer: int
-    ) -> None:
+    def __init__(self, question: str, answers: List[str], correct_answer: int) -> None:
         self.question = question
         self.answers = answers
         self.correct_answer = correct_answer
@@ -37,7 +34,7 @@ class Question:
                 continue
             print(f"{list(self.answers_mapping.keys())[idx]}: {i}\n")
 
-    def is_answer_correct(self, player_answer):
+    def is_answer_correct(self, player_answer: int) -> bool:
         if self.answers_mapping.get(player_answer) == self.correct_answer:
             return True
         return False

@@ -1,7 +1,7 @@
 import json
 import time
 import uuid
-
+from rich import print
 from player import Player
 
 
@@ -26,9 +26,7 @@ class ScoreBoard:
             best_scores[self.game_level].append(player_score)
         else:
             best_scores[self.game_level] = [player_score]
-        best_scores[self.game_level] = self.sort_scores(
-            best_scores[self.game_level]
-        )
+        best_scores[self.game_level] = self.sort_scores(best_scores[self.game_level])
         self.save_best_scores(best_scores)
 
     def is_score_qualified(self) -> bool:
@@ -54,8 +52,9 @@ class ScoreBoard:
         return is_qualified
 
     def show_best_scores(self) -> None:
-
         best_scores = self.get_best_scores()
+        if not best_scores:
+            print("\nThere are no results yet!\n")
         for k, v in best_scores.items():
             print("--------------------")
             print(f"\n10 {k.upper()} LEVEL BEST SCORES:\n")
