@@ -10,13 +10,21 @@ console = Console()
 
 
 class Player:
-    def __init__(self, name: str) -> None:
-        self.name = name
+    def __init__(self) -> None:
+        self._name = None
         self.score = 0
         self.game_level = None
         self.lifeline_qty = 0
         self.start_game_time = None
         self.game_time = None
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self,name):
+        self._name = name
 
     def pick_game_level(self) -> str:
         print("\nPlease choose a game level: \n")

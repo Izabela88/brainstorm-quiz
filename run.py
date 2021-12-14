@@ -13,6 +13,7 @@ from rich.theme import Theme
 from rich.prompt import Confirm
 
 
+
 custom_theme = Theme(
     {
         "info": "bold dark_blue",
@@ -31,7 +32,7 @@ q_title = """
 
 md1 = """
 # Your goal is to collect as many points as possible.
-# To become a Brainstorm King, you have to answer all the questions.
+# To become a Brainstorm Champion, you have to answer all the questions.
 # But be careful! 
 # The total playing time is also counts! HAVE FUN!
 """
@@ -67,7 +68,7 @@ def handle_menu() -> int:
     }
     console.print("\nMENU:\n", style="info")
     for key, value in menu.items():
-        print(f"{key} - {value.upper()}\n")
+        print(f"{key} - {value.upper()}")
 
     return input_validate(
         "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3], 
@@ -82,7 +83,7 @@ def start_game_menu(player: Player) -> Questions:
             range_list=["s"]
         )
         if player.game_level == "normal":
-            questions = Questions(3)
+            questions = Questions(10)
         else:
             questions = Questions(20)
         questions.draw_questions()
@@ -101,25 +102,29 @@ def time_counting() -> None:
     stdout.write("\n\n")
 
 
-def new_game() -> bool:
+def new_game(player) -> bool:
     continue_game = False
-    name = input_validate(
-        "\nPLEASE TYPE YOUR NAME: ",
-        is_int=False,
-        range_list=None,
-        case_sensitive=True,
-        max_length=20,
-        min_length=3,
-    )
-    player = Player(name)
-    console.print(f"\n[info]Hello {player.name}, welcome to BRAINSTORM QUIZ!")
+
+    if not player.name:
+        name = input_validate(
+            "\nPLEASE TYPE YOUR NAME: ",
+            is_int=False,
+            range_list=None,
+            case_sensitive=True,
+            max_length=20,
+            min_length=3,
+        )
+        player.name = name
+        w_txt = "welcome to BRAINSTORM QUIZ!"
+        console.print(f"\n[info]Hello {player._name} " + w_txt)   
     player.pick_game_level()
     questions = start_game_menu(player)
     time_counting()
     player.start_game_time = time.time()
+    player.score = 0
     question_number = 1
     while True:
-        c_msg = "CONGRATULATIONS! YOU BECOME A KING OF BRAINSTORM QUIZ!\n"
+        c_msg = "WELL DONE! YOU BECOME A CHAMPION OF BRAINSTORM QUIZ!\n"
         emo = "\n:smiling_face_with_sunglasses: "
         try:
             next_game_question = questions.next_question()
@@ -131,7 +136,12 @@ def new_game() -> bool:
             if q is True:
                 continue_game = True
             break
-        console.print(f"\n[info]QUESTION NO. {question_number}:")
+        show_question_no = Panel.fit(
+            Markdown(f"\nQUESTION NO. {question_number}:", justify="center"),
+            width=60,
+            style="bold dark_blue",
+        )
+        console.print(show_question_no)
         next_game_question.print_question()
 
         if player.lifeline_qty >= 1:
@@ -169,11 +179,14 @@ def new_game() -> bool:
         else:
             console.print("\n:thumbsdown: [danger]OH NO! INCORRECT ANSWER!\n")
             console.print(":x: [danger]GAME OVER!:x:\n")
-            q = Confirm.ask("Do you want to play again? ")
-            if q is True:
-                continue_game = True
             final_results(player)
             save_score(player)
+            q = Confirm.ask("Do you want to play again?")
+            if q is True:
+                continue_game = True
+                c = "COOL!"
+                console.print(f"[info]\nWOW! YOU DON'T GIVE UP {player._name}!"
+                + c)
             break
     return continue_game
 
@@ -185,10 +198,10 @@ def save_score(player):
 
 
 def final_results(player) -> None:
-    console.print(f"[info]{player.name} YOUR FINAL SCORE: {player.score}\n")
+    console.print(f"[info]{player.name} YOUR FINAL SCORE IS: {player.score}\n")
     player.game_time = time.time() - player.start_game_time
     t = time.strftime("[info]%H:%M:%S\n", time.gmtime(player.game_time))
-    console.print(f"[info]{player.name} YOUR GAME TIME: " + t)
+    console.print(f"[info]{player.name} YOUR GAME TIME IS: " + t)
 
 
 def best_scores() -> None:
@@ -197,15 +210,17 @@ def best_scores() -> None:
 
 
 def manage_menu_options() -> None:
+    player = Player()
     while True:
         option = int(handle_menu())
         if option == 1:
-            if not new_game():
+            if not new_game(player):
                 console.print("\n:heart:  THANK YOU FOR THE GAME! :heart:\n")
                 break
         elif option == 2:
             best_scores()
         elif option == 3:
+            console.print("\n:heart:  BYE BYE! :heart:\n")
             break
 
 
