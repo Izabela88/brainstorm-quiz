@@ -1,8 +1,14 @@
 import json
 import time
 import uuid
-from rich import print
 from player import Player
+from rich.panel import Panel
+from rich.console import Console
+from rich.markdown import Markdown
+from rich import print
+
+
+console = Console()
 
 
 class ScoreBoard:
@@ -47,13 +53,17 @@ class ScoreBoard:
         elif self.score == lowest_score and self.game_time < highest_time:
             level_scores_sorted.pop()
             is_qualified = True
-        
+
         best_scores[self.game_level] = level_scores_sorted
         self.save_best_scores(best_scores)
         if is_qualified == False:
-            print(f"\nWell...{self.player_name} you did not qualify for best scores board this time.\n")
+            console.print(
+                f"[bold yellow1]\nWell...{self.player_name} you did not qualify for best scores board this time.\n"
+            )
         else:
-            print(f"\nYAY! {self.player_name} you have qualified for best scores board!\n")
+            console.print(
+                f"[bold yellow1]\nYAY! {self.player_name} you have qualified for best scores board!\n"
+            )
         return is_qualified
 
     def show_best_scores(self) -> None:
@@ -61,8 +71,12 @@ class ScoreBoard:
         if not best_scores:
             print("\nThere are no results yet!\n")
         for k, v in best_scores.items():
-            print("--------------------")
-            print(f"\n10 {k.upper()} LEVEL BEST SCORES:\n")
+            score_title = Panel.fit(
+                Markdown(f"\n10 {k.upper()} LEVEL BEST SCORES:\n", justify="center"),
+                width=60,
+                style="bold dark_blue",
+            )
+            console.print(score_title)
             for idx, i in enumerate(v, 1):
                 time_formatted = time.strftime(
                     "%H:%M:%S\n", time.gmtime(i["player_game_time"])

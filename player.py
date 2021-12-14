@@ -29,7 +29,11 @@ class Player:
 
         while True:
             level = input_validate(
-                "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2]
+                "\nENTER YOUR CHOICE: ",
+                is_int=True,
+                range_list=[1, 2],
+                min_length=1,
+                max_length=1,
             )
             if level == 1:
                 questions_qty = 10
@@ -46,6 +50,17 @@ class Player:
             s4 = " To use your lifeline press 'h'."
             s5 = " GOOD LUCK!"
             s6 = f"\nYou picked level: '{level_menu[level].upper()}'"
-            print(Panel.fit(Markdown(s6, justify="center"), width=60))
-            print(Panel.fit(Markdown(s1 + s2 + s3 + s4 + s5,justify="center"), width=60))
+            print(
+                Panel.fit(
+                    Markdown(s6, justify="center"), width=60, 
+                    style="bold dark_blue"
+                )
+            )
+            print(
+                Panel.fit(
+                    Markdown(s1 + s2 + s3 + s4 + s5, justify="center"),
+                    width=60,
+                    style="bold dark_blue",
+                )
+            )
             return level_menu[level]

@@ -36,19 +36,28 @@ md1 = """
 # The total playing time is also counts! HAVE FUN!
 """
 
+
 def run_brainstorm():
     while True:
         panel_title = Panel.fit(Markdown(q_title, justify="center"), width=60)
-        panel_1 = Panel.fit(Markdown(md1, justify="center"), width=60,
-        title="RULES",subtitle="[danger]PRESS ENTER TO BEGIN")
+        panel_1 = Panel.fit(
+            Markdown(md1, justify="center"),
+            width=60,
+            title="RULES",
+            subtitle="[danger]PRESS ENTER TO BEGIN",
+        )
         console.print(panel_title, style="warning")
-        console.print(panel_1,style="info")
+        console.print(panel_1, style="info")
 
         enter_game = input()
         if len(enter_game) > 0:
-            console.print("Please press ENTER to start game!",style="danger",justify="left")
+            console.print(
+                "Please press ENTER to start game!", style="danger", 
+                justify="left"
+            )
             continue
         manage_menu_options()
+
 
 def handle_menu() -> int:
     menu = {
@@ -56,19 +65,21 @@ def handle_menu() -> int:
         2: "best scores",
         3: "exit",
     }
-    console.print("\nMENU:\n", style="general")
+    console.print("\nMENU:\n", style="info")
     for key, value in menu.items():
         print(f"{key} - {value.upper()}\n")
 
     return input_validate(
-        "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3])
+        "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3], 
+        max_length=1
+    )
 
 
 def start_game_menu(player: Player) -> Questions:
     while True:
         input_validate(
-            "\nTYPE s TO START BRAINSTORM QUIZ: ", 
-            is_int=False, range_list=["s"]
+            "\nTYPE s TO START BRAINSTORM QUIZ: ", is_int=False, 
+            range_list=["s"]
         )
         if player.game_level == "normal":
             questions = Questions(3)
@@ -79,12 +90,15 @@ def start_game_menu(player: Player) -> Questions:
 
 
 def time_counting() -> None:
-    print("\nLET'S BEGIN!")
+    start_msg = Panel.fit(
+        Markdown("\nLET'S BEGIN!", justify="center"), width=60, style="warning"
+    )
+    console.print(start_msg)
     for i in range(5, 0, -1):
         stdout.write("\r%d" % i)
         stdout.flush()
         sleep(1)
-    stdout.write("\nSTART!\n")
+    stdout.write("\n\n")
 
 
 def new_game() -> bool:
@@ -94,6 +108,8 @@ def new_game() -> bool:
         is_int=False,
         range_list=None,
         case_sensitive=True,
+        max_length=20,
+        min_length=3,
     )
     player = Player(name)
     console.print(f"\n[info]Hello {player.name}, welcome to BRAINSTORM QUIZ!")
@@ -115,20 +131,20 @@ def new_game() -> bool:
             if q is True:
                 continue_game = True
             break
-        print("------------------------------------------------------------")
         console.print(f"\n[info]QUESTION NO. {question_number}:")
         next_game_question.print_question()
 
         if player.lifeline_qty >= 1:
             l_suffix = "" if player.lifeline_qty == 1 else "S"
-            console.print(
-                f"[warning]YOU HAVE {player.lifeline_qty} LIFELINE{l_suffix}"
-            )
+            l_txt = f"LIFELINE{l_suffix}"
+            console.print(f"[warning]YOU HAVE {player.lifeline_qty} " + l_txt)
 
         answer = input_validate(
             "\nYOUR ANSWER IS: ",
             is_int=False,
             range_list=["a", "b", "c", "d", "h"],
+            max_length=1,
+            min_length=1,
         )
         if answer == "h":
             if player.lifeline_qty:
@@ -141,6 +157,8 @@ def new_game() -> bool:
                 "\nYOUR ANSWER IS: ",
                 is_int=False,
                 range_list=["a", "b", "c", "d"],
+                max_length=1,
+                min_length=1,
             )
         if next_game_question.is_answer_correct(answer):
             question_number += 1
@@ -151,11 +169,11 @@ def new_game() -> bool:
         else:
             console.print("\n:thumbsdown: [danger]OH NO! INCORRECT ANSWER!\n")
             console.print(":x: [danger]GAME OVER!:x:\n")
-            final_results(player)
-            save_score(player)
             q = Confirm.ask("Do you want to play again? ")
             if q is True:
                 continue_game = True
+            final_results(player)
+            save_score(player)
             break
     return continue_game
 

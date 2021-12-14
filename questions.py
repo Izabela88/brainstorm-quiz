@@ -1,6 +1,11 @@
 import json
 import random
 from typing import List
+from rich.panel import Panel
+from rich.console import Console
+from rich.markdown import Markdown
+
+console = Console()
 
 
 class Questions:
@@ -27,7 +32,13 @@ class Question:
         self.answers_mapping = {"a": 0, "b": 1, "c": 2, "d": 3}
 
     def print_question(self, print_only: list = None) -> None:
-        print(f"\n{self.question}\n")
+        show_question = Panel.fit(
+            Markdown(f"\n{self.question}\n", justify="center"),
+            width=60,
+            style="bold dark_blue",
+        )
+        console.print(show_question)
+
         for idx, i in enumerate(self.answers):
             if print_only and idx not in print_only:
                 continue
