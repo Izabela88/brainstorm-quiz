@@ -101,6 +101,25 @@ def time_counting() -> None:
         sleep(1)
     stdout.write("\n\n")
 
+def champion_type(player):
+    ch_type1 = Panel.fit(
+        Markdown("WELL DONE! YOU BECOME A CHAMPION OF BRAINSTORM QUIZ IN THE EARTH!\n", 
+        justify="center"),
+        width=60,
+        style="gold1",
+    )
+    ch_type2 = Panel.fit(
+        Markdown("WOW! YOUR KNOWLEDGE IS IMPRESSIVE! YOU BECOME A GREATEST CHAMPION OF BRAINSTORM QUIZ IN THE WHOLE GALAXY!!!\n", 
+        justify="center"),
+        width=60,
+        style="gold1",
+    )
+    
+    if player.game_level == "normal":
+        console.print(ch_type1)
+    else:
+        console.print(ch_type2)
+    
 
 def new_game(player) -> bool:
     continue_game = False
@@ -116,7 +135,8 @@ def new_game(player) -> bool:
         )
         player.name = name
         w_txt = "welcome to BRAINSTORM QUIZ!"
-        console.print(f"\n[info]Hello {player._name} " + w_txt)   
+        console.print(f"\n[info]Hello {player._name} " + w_txt) 
+
     player.pick_game_level()
     questions = start_game_menu(player)
     time_counting()
@@ -124,12 +144,10 @@ def new_game(player) -> bool:
     player.score = 0
     question_number = 1
     while True:
-        c_msg = "WELL DONE! YOU BECOME A CHAMPION OF BRAINSTORM QUIZ!\n"
-        emo = "\n:smiling_face_with_sunglasses: "
         try:
             next_game_question = questions.next_question()
         except IndexError:
-            console.print(emo + c_msg, style="gold1")
+            champion_type(player)
             final_results(player)
             save_score(player)
             q = Confirm.ask("Do you want to play again? ")
@@ -185,7 +203,7 @@ def new_game(player) -> bool:
             if q is True:
                 continue_game = True
                 c = "COOL!"
-                console.print(f"[info]\nWOW! YOU DON'T GIVE UP {player._name}!"
+                console.print(f"[info]\nWOW! YOU DON'T GIVE UP {player._name}! "
                 + c)
             break
     return continue_game
