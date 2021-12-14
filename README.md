@@ -7,7 +7,7 @@ The player score are recorded on the score board, so the player has the opportun
 [View the live project here](https://brainstorm-quiz-game.herokuapp.com/)
 
 
-<h2 align="center">https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg</h2>
+<h2 align="center">"https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg"</h2>
 
 ## **Table of content**
 
