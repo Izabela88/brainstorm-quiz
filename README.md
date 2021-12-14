@@ -1,9 +1,13 @@
 <h1 align="center">BRAINSTORM QUIZ GAME</h1>
 
+The goal of the Brainstorm Quiz is to become the champion. To achieve this, the player must answer all questions as quickly as possible. The player can choose between two difficulty levels: Normal and Expert. The Normal level has 10 questions and the Expert level has 20 questions. The player also has the option of using the lifline in case of difficulty answering questions. Normal level has 2 lifelines and Expert level has 4 lifelines to use.
+
+The player score are recorded on the score board, so the player has the opportunity to check his score. Only the top 10 scores count.
+
 [View the live project here](https://brainstorm-quiz-game.herokuapp.com/)
 
 
-<h2 align="center"></h2>
+<h2 align="center">https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg</h2>
 
 ## **Table of content**
 
