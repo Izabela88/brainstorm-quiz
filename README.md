@@ -1,12 +1,15 @@
 <h1 align="center">BRAINSTORM QUIZ GAME</h1>
 
-The goal of the Brainstorm Quiz is to become the Brainstorm Champion. To achieve this, the player must answer all questions as quickly as possible. The player can choose between two difficulty levels: Normal and Expert. The Normal level has 10 questions and the Expert level has 20 questions. The player also has the option of using the lifline in case of difficulty answering questions. Normal level has 2 lifelines and Expert level has 4 lifelines to use.
+[View the live project here](https://brainstorm-quiz-game.herokuapp.com/)
+
+The goal of the Brainstorm Quiz is to become the Brainstorm Champion. To achieve this, the player must answer all questions.
+The player can choose between two difficulty levels: Normal and Expert. 
+
+After completing the game on Normal level, the player receives the title "THE GREATEST CHAMPION IN THE EARTH!".
+After completing the game on Expert level, the player receives the title "THE GREATEST CHAMPION IN THE WHOLE GALAXY".
 
 The player score are recorded on the score board, so the player has the opportunity to check his score. Only the top 10 scores count.
-
-To start game player must press "Enter".
-
-[View the live project here](https://brainstorm-quiz-game.herokuapp.com/)
+In order for a player to be on the scoreboard, not only the score counts, but also the total playing time.
 
 
 <h2 align="center"><img src="https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg"></h2>
@@ -16,6 +19,8 @@ To start game player must press "Enter".
 - [User Experience](#user-experience)
   - [User Stories](#user-stories)
   - [Design](#design)
+  - [Scope](#scope)
+    - [Structure](#structure)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
   - [Languages Used](#languages-used)
@@ -23,8 +28,6 @@ To start game player must press "Enter".
 - [Code Organisation](#code-organisation)
 - [Data Validation](#data-validation)
 - [Testing](#testing)
-  - [Further Testing](#further-testing)
-  - [Testing User Stories from User Experience Section](#testing-user-stories-from-user-experience-section)
 - [Deployment](#deployment)
 - [Bugs](#bugs)
 - [Credits](#credits)
@@ -46,18 +49,168 @@ To start game player must press "Enter".
       4. I want to be able to see the results of my game.
       5. I want to know clearly what the steps of the game are.
       6. I want to be able to play again.
-      7. I want to see the game results on the score board.
-  
+      7. I want to be able exit game.
 
+  
 - ### Design
 
-  This is a game is displayed in the terminal so the design options are very limited. However, I used an external library that allowed me to add colors and emojis. Thanks to this, the game is legible and more player-friendly
+  This is a game is displayed in the terminal so the design options are very limited. However, I used an external library that allowed me to add colors and emojis. Thanks to this, the game is legible and more player-friendly.
 
   - #### Colour Scheme
 
   Colors used: yellow, blue, purple, green and red.
 
+
+- ### Scope
+
+  - #### Structure
+
 ## Features
+
+
+- #### Main Menu
+
+- I want to easily understand the main purpose of the game.
+- I want to know the rules of the game.
+  
+  - Contains the name of the game and basic information about the rules of the game.
+  - Information on how to start the game is provided at the bottom.
+  
+  ![Main Menu](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg)
+
+
+- #### Game Menu
+
+- I want to be able to easily navigate throughout the game options.
+
+  - It is divided into three categories: New Game, Best Scores and Exit.
+  - The player can choose the option by entering the assigned number.
+  
+  ![Game Menu](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/game-menu.jpg)
+
+
+- #### Scoreboard
+
+- I want to be able to see the results of my game.
+
+  - Contains the top 10 game scores in two levels.
+  
+  ![Scoreboard](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/score-board.jpg)
+
+  - An appropriate message appears when there are no results in the game yet.
+
+  ![Scoreboard](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/score-board-no-results-msg.jpg)
+
+  - The message is displayed if a player qualifies or does not qualify to the scoreboard.
+
+  ![Scoreboard Message](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/score-board-not-msg.jpg)
+
+  ![Scoreboard Message](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/score-board-yes-msg.jpg)
+  
+
+- #### New Game
+
+-  I want to know clearly what the steps of the game are.
+
+  - To start a new game, the player must go through several steps:
+    - Enter name.
+    - Choose game level.
+    - Type 's' to start game.
+  
+  ![Enter Name](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/enter-name.jpg)
+  ![Choose Game Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/game-level.jpg)
+  ![Start Game](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/start-game.jpg)
+
+
+- #### Game Levels
+
+- I want to know the rules of the game.
+
+  - The game has two difficulty levels: Normal and Expert.
+
+    - Level Normal:
+        - Contains 10 questions.
+        - Contains 2 Lifelines.
+        - After answering all the questions, the player receives the title: THE GREATEST CHAMPION IN THE EARTH.
+
+    - When a player selects a Normal difficulty level, a message will appear explaining the rules of the game for that difficulty:
+
+    ![Normal level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/normal-lvl-msg.jpg)
+    
+    
+    - Level Expert:
+        - Contains 20 questions.
+        - Contains 4 Lifelines.
+        - After answering all the questions, the player receives the title: THE GREATEST CHAMPION IN THE WHOLE GALAXY.
+
+    - When a player selects a Expert difficulty level, a message will appear explaining the rules of the game for that difficulty:
+
+    ![Expert level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/expert-lvl-msg.jpg)
+
+    - After successfully completing the quiz, a message will appear stating that the player has earned the title based on their game level.
+
+    ![Normal Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/complete-game.jpg)
+
+    ![Expert Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/complete-game.jpg)
+
+
+- #### Begin Game
+
+  - After pressing the letter 's', the message "Let's begin" appears.
+  - A countdown of five seconds begins until the game begins.
+
+  ![Begin Game](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/begin-game.jpg)
+
+
+- #### Lifelines
+
+  - The player has the option to use Lifeline during the game.
+  - When a player uses Lifeline, of the four answers, two wrong ones are removed.
+  - The player always know How many lifelines left.
+
+  ![Lifeline](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline.jpg)
+
+
+- #### Questions and Answers
+
+  - The questions are numbered so that the player knows where he is in the game.
+  - The questions are highlighted in a different color to make them legible.
+  - To answer a question, the player should enter the appropriate letter.
+  
+  ![Questions](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/question.jpg)
+
+  - After the player answered, a message appears depending on whether the player answered correctly or not.
+  - For each correct answer the player gets 10 points, the wrong answer ends the game.
+  - At the end of the game, information about the final score and time is displayed.
+
+  ![Good answer](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/correct-answer.jpg)
+
+  ![Bad answer](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/incorrect-answer.jpg)
+
+  
+
+- #### Play Again
+
+- I want to be able to play again.
+
+  - The player has the option to play again.
+  - A query appears on the screen.
+  - To play again play must enter 'y', if he does not want to play again must select 'n'.
+
+  ![Play again](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/play-again-y-msg.jpg)
+
+
+- #### Finish Game
+
+- I want to be able exit game.
+
+  - To end the game, the player can select number '3' from the game menu or enter the letter 'n' when is asked if he wants to play again.
+  - Some goodbye messages appear when the game is over.
+
+  ![Exit msg](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/exit-msg.jpg)
+  ![Exit msg](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/no-play-again-msg.jpg)
+
+
 
 ## Technologies Used
 
@@ -65,39 +218,61 @@ To start game player must press "Enter".
 
 - [Python 3.8.2](https://en.wikipedia.org/wiki/Python_(programming_language))
 
+
 ### Frameworks, Libraries and Programs Used
 
 1. [Rich:](https://rich.readthedocs.io/en/latest/introduction.html)
    - Rich is a Python library for writing rich text (with color and style) to the terminal, and for displaying advanced content such as tables, markdown, and syntax highlighted code.
 1. [Black:](https://pypi.org/project/black/)
    - Used for format the code.
+1. [Flake8]:(https://flake8.pycqa.org/en/latest/)
+   - Used for checking if code is correct.
 
 
 ## Code Organisation
 
+- As the code grew, the I decided to split all Python code for parts:
+
+  - run.py: contains the main code relating to the entire logic of the game
+  - questions.py: there are Questions objects which contain the code related to the questions
+  - score_board.py: there are Scoreboard object which contain the code related to the scoreboard
+  - player.py: there are Player object which contain the code related to the player
+  - utility.py: contains a function that validates inputs
+
+- The questions are taken from the local JSON file.
+- The player's score is saved to a JSON file. 
+
+
 ## Data Validation
+
+  - Input validation:
+
+    - No blank fields.
+    ![Blank](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/blank-field.jpg)
+
+    - Right input.
+    ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/integer.jpg)
+    ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/valid-answer.jpg)
+
+    - Too few characters.
+    ![Too few](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/too-low-characters.jpg)
+
+    - Too many characters.
+    ![Too many](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/too-many-characters.jpg)
+    
+    - Play again.
+    ![play again](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/play-again.jpg)
+    
+    - No lifelines
+    ![No lifelines](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline-last-time.jpg)
+    
 
 ## Testing
 
-### Further Testing
+I have manually tested this project by doing the following:
 
-- The Website was tested on Google Chrome, Mozilla Firefox, Opera and Safari browsers.
-- The Safari browser doesn't support 'smooth' behavior parameter in window.scroll() method.
-- The website was viewed on a variety of devices such as Desktop, Laptop (Macbook Pro 16 inch), Mobiles( Huawei P20 Mate, Huawei P30, Samsung S21 ultra).
-- A large amount of testing was done to ensure that all pages were linking correctly.
-- Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
-
-### Testing User Stories from User Experience Section
-
-- #### The Visitor Goals
-
-  1. I want to easily understand the main purpose of the game.
-  2. I want to be able to easily navigate throughout the game options.
-  3. I want to know the rules of the game.
-  4. I want to be able to see the results of my game.
-  5. I want to know clearly what the steps of the game are.
-  6. I want to be able to play again.
-  7. I want to see the game results on the score board.
+  - Passed the code through a PEP8 linter and confirmed there are no issues.
+  - Giving invalid input.
 
 
 ## Deployment
@@ -110,6 +285,7 @@ This project was deployed using Code institute's mock terminal for Heroku.
     - Set the buildpacks to 'Python' and 'NodeJS' in that order
     - Link the Heroku app to the respository
     - Click on 'Deploy'
+
 
 ### Forking the GitHub Repository
 
@@ -145,7 +321,11 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 ## Bugs
 
+No bugs remaining.
+
 ## Credits
+
+  - Code Institute for the deploytment terminal.
 
 ### Code
 
@@ -161,3 +341,4 @@ While coding for some problems and inspirations with Python code, I looked for a
 ### Acknowledgements
 
 - My Mentor for continuous helpful feedback.
+- Tobiasz Chodarweicz for review my code and helpful sugestion.

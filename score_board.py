@@ -58,7 +58,7 @@ class ScoreBoard:
 
         best_scores[self.game_level] = level_scores_sorted
         self.save_best_scores(best_scores)
-        if is_qualified == False:
+        if is_qualified is False:
             console.print(
                 f"[bold yellow1]\nWell...{self.player_name}" +
                 " you did not qualify for best scores board this time" +

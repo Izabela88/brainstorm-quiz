@@ -53,15 +53,13 @@ class Player:
                 self.lifeline_qty = 4
             self.game_level = level_menu[level]
 
-            txt0 = " lifelines to remove two wrong answers."
-            txt1 = f"You will be presented with {questions_qty} questions."
-            txt2 = " Enter the appropriate letter to answer the question."
-            txt3 = f" In case of trouble, you can use {self.lifeline_qty}"
-            +txt0
-            txt4 = " To use your lifeline press 'h'."
-            txt_t = f"THE GREATEST CHAMPION {game_title}"
-            txt5 = " After completing the quiz, you will receive a title: "
-            +txt_t
+            t0 = " lifelines to remove two wrong answers."
+            txt1 = f" You will be presented with {questions_qty} questions."
+            txt2 = " Enter the appropriate letter to answer the question. "
+            txt3 = f"In case of trouble, you can use {self.lifeline_qty}" + t0
+            txt4 = " To use your lifeline press 'h'. "
+            txt = f" THE GREATEST CHAMPION {game_title}"
+            txt5 = "After completing the quiz, you will receive a title:" + txt
             txt6 = " GOOD LUCK!"
             txt7 = f"\nYou picked level: '{level_menu[level].upper()}'"
             print(
