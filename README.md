@@ -154,8 +154,12 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
     - After successfully completing the quiz, a message will appear stating that the player has earned the title based on their game level.
 
+    - Normal level:
+
     ![Normal Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/complete-game.jpg)
 
+    - Expert level:
+    
     ![Expert Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/complete-game-exp.jpg)
 
 
