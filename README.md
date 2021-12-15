@@ -238,7 +238,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
    - Rich is a Python library for writing rich text (with color and style) to the terminal, and for displaying advanced content such as tables, markdown, and syntax highlighted code.
 1. [Black:](https://pypi.org/project/black/)
    - Used for format the code.
-1. [Flake8:]:(https://flake8.pycqa.org/en/latest/)
+1. [Flake8:](https://flake8.pycqa.org/en/latest/)
    - Used for checking if code is correct.
 
 
