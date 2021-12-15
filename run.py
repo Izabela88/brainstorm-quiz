@@ -34,7 +34,7 @@ md1 = """
 # Your goal is to collect as many points as possible.
 # To become a Brainstorm Champion, you have to answer all the questions.
 # But be careful! 
-# The total playing time is also counts! HAVE FUN!
+# The total playing time also counts! HAVE FUN!
 """
 
 
@@ -103,14 +103,19 @@ def time_counting() -> None:
 
 
 def champion_type(player) -> None:
-    ch_type1 = Panel.fit(
-        Markdown("WELL DONE! YOU BECOME A CHAMPION OF BRAINSTORM QUIZ IN THE EARTH!\n", 
+    ch_txt1 = "WELL DONE! YOU BECOME A GREATEST CHAMPION OF BRAINSTORM "
+    ch_txt2 = "QUIZ IN THE EARTH!\n"
+    ch_txt3 = "WOW! YOUR KNOWLEDGE IS IMPRESSIVE!"
+    ch_txt4 = "YOU BECOME A GREATEST CHAMPION OF BRAINSTORM QUIZ "
+    ch_txt5 = "IN THE WHOLE GALAXY!!!\n"
+    
+    ch_type1 = Panel.fit(Markdown(ch_txt1 + ch_txt2,
         justify="center"),
         width=60,
         style="gold1",
     )
     ch_type2 = Panel.fit(
-        Markdown("WOW! YOUR KNOWLEDGE IS IMPRESSIVE! YOU BECOME A GREATEST CHAMPION OF BRAINSTORM QUIZ IN THE WHOLE GALAXY!!!\n", 
+        Markdown(ch_txt3 + ch_txt4 + ch_txt5, 
         justify="center"),
         width=60,
         style="gold1",
@@ -198,7 +203,7 @@ def new_game(player) -> bool:
                 max_length=1,
                 min_length=1,
             )
-            
+
         if next_game_question.is_answer_correct(answer):
             question_number += 1
             console.print("\n:thumbs_up: [correct]GREAT! CORRECT ANSWER!\n")

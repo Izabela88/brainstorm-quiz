@@ -46,27 +46,34 @@ class Player:
             if level == 1:
                 questions_qty = 10
                 self.lifeline_qty = 2
+                game_title = "IN THE EARTH!"
             else:
                 questions_qty = 20
+                game_title = "IN THE WHOLE GALAXY!"
                 self.lifeline_qty = 4
             self.game_level = level_menu[level]
 
-            s = " lifelines to remove two wrong answers."
-            s1 = f"You will be presented with {questions_qty} questions."
-            s2 = " Enter the appropriate letter to answer the question."
-            s3 = f" In case of trouble, you can use {self.lifeline_qty}" + s
-            s4 = " To use your lifeline press 'h'."
-            s5 = " GOOD LUCK!"
-            s6 = f"\nYou picked level: '{level_menu[level].upper()}'"
+            txt0 = " lifelines to remove two wrong answers."
+            txt1 = f"You will be presented with {questions_qty} questions."
+            txt2 = " Enter the appropriate letter to answer the question."
+            txt3 = f" In case of trouble, you can use {self.lifeline_qty}" 
+            + txt0
+            txt4 = " To use your lifeline press 'h'."
+            txt_t = f"THE GREATEST CHAMPION {game_title}"
+            txt5 = " After completing the quiz, you will receive a title: " 
+            + txt_t
+            txt6 = " GOOD LUCK!"
+            txt7 = f"\nYou picked level: '{level_menu[level].upper()}'"
             print(
                 Panel.fit(
-                    Markdown(s6, justify="center"), width=60, 
+                    Markdown(txt7, justify="center"), width=60, 
                     style="bold dark_blue"
                 )
             )
             print(
                 Panel.fit(
-                    Markdown(s1 + s2 + s3 + s4 + s5, justify="center"),
+                    Markdown(txt1 + txt2 + txt3 + txt4 + txt5 + txt6,
+                    justify="center"),
                     width=60,
                     style="bold dark_blue",
                 )
