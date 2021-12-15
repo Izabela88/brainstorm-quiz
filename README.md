@@ -248,8 +248,8 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
   - run.py: contains the main code relating to the entire logic of the game
   - questions.py: there are Questions objects which contain the code related to the questions
-  - score_board.py: there are Scoreboard object which contain the code related to the scoreboard
-  - player.py: there are Player object which contain the code related to the player
+  - score_board.py: there is Scoreboard object which contain the code related to the scoreboard
+  - player.py: there is Player object which contain the code related to the player
   - utility.py: contains a function that validates inputs
 
 - The questions are taken from the local JSON file.
