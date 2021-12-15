@@ -69,7 +69,7 @@ class ScoreBoard:
     def show_best_scores(self) -> None:
         best_scores = self.get_best_scores()
         if not best_scores:
-            print("\nThere are no results yet!\n")
+            console.print("\nTHERE ARE NO RESULTS YET!!\n", style="dark_blue")
         for k, v in best_scores.items():
             score_title = Panel.fit(
                 Markdown(f"\n10 {k.upper()} LEVEL BEST SCORES:\n", 

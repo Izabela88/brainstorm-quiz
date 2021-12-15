@@ -66,7 +66,7 @@ def handle_menu() -> int:
         2: "best scores",
         3: "exit",
     }
-    console.print("\nMENU:\n", style="info")
+    console.print("\nGAME MENU:\n", style="info")
     for key, value in menu.items():
         print(f"{key} - {value.upper()}")
 
@@ -101,7 +101,8 @@ def time_counting() -> None:
         sleep(1)
     stdout.write("\n\n")
 
-def champion_type(player):
+
+def champion_type(player) -> None:
     ch_type1 = Panel.fit(
         Markdown("WELL DONE! YOU BECOME A CHAMPION OF BRAINSTORM QUIZ IN THE EARTH!\n", 
         justify="center"),
@@ -119,7 +120,22 @@ def champion_type(player):
         console.print(ch_type1)
     else:
         console.print(ch_type2)
-    
+
+
+def show_question_no(question_number) -> None:
+    show_question_no = Panel.fit(
+        Markdown(f"\nQUESTION NO. {question_number}:", justify="center"),
+        width=60,
+        style="bold dark_blue",
+    )
+    console.print(show_question_no)
+
+
+def show_lifeline_qty(player):
+    if player.lifeline_qty >= 1:
+        l_suffix = "" if player.lifeline_qty == 1 else "S"
+        l_txt = f"LIFELINE{l_suffix}"
+        console.print(f"[warning]YOU HAVE {player.lifeline_qty} " + l_txt)
 
 def new_game(player) -> bool:
     continue_game = False
@@ -143,6 +159,7 @@ def new_game(player) -> bool:
     player.start_game_time = time.time()
     player.score = 0
     question_number = 1
+   
     while True:
         try:
             next_game_question = questions.next_question()
@@ -154,18 +171,11 @@ def new_game(player) -> bool:
             if q is True:
                 continue_game = True
             break
-        show_question_no = Panel.fit(
-            Markdown(f"\nQUESTION NO. {question_number}:", justify="center"),
-            width=60,
-            style="bold dark_blue",
-        )
-        console.print(show_question_no)
+        
+        show_question_no(question_number)
         next_game_question.print_question()
 
-        if player.lifeline_qty >= 1:
-            l_suffix = "" if player.lifeline_qty == 1 else "S"
-            l_txt = f"LIFELINE{l_suffix}"
-            console.print(f"[warning]YOU HAVE {player.lifeline_qty} " + l_txt)
+        show_lifeline_qty(player)
 
         answer = input_validate(
             "\nYOUR ANSWER IS: ",
@@ -188,6 +198,7 @@ def new_game(player) -> bool:
                 max_length=1,
                 min_length=1,
             )
+            
         if next_game_question.is_answer_correct(answer):
             question_number += 1
             console.print("\n:thumbs_up: [correct]GREAT! CORRECT ANSWER!\n")
