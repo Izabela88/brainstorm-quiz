@@ -32,7 +32,9 @@ def input_validate(
             try:
                 user_input = int(user_input)
             except ValueError:
-                console.print("Please type right input, must be integer\n", style="red")
+                console.print(
+                    "Please type right input, must be integer\n", style="red"
+                    )
                 continue
 
         if range_list and user_input not in range_list:
