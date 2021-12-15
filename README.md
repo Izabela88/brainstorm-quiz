@@ -65,8 +65,8 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
   - #### APLICATION FLOW CHART
 
-  ![Flow chart]()
-  ![Flow chart]()
+  ![Flow chart](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/structure1.jpg)
+  ![Flow chart](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/structure2.jpg)
 
 ## FEATURES
 
