@@ -175,6 +175,10 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
   ![Lifeline](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline.jpg)
 
+  - No lifelines
+
+    ![No lifelines](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline-last-time.jpg)
+
 
 - #### QUESTIONS AND ANSWERS
 
@@ -274,10 +278,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
     ![play again](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/play-again.jpg)
     
-    - No lifelines
-
-    ![No lifelines](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline-last-time.jpg)
-    
+      
 
 ## TESTING
 
