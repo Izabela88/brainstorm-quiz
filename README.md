@@ -353,4 +353,4 @@ While coding for some problems and inspirations with Python code, I looked for a
 ### ACKNOWLEDGEMENTS
 
 - My Mentor for continuous helpful feedback.
-- Tobiasz Chodarweicz for review my code and helpful sugestion.
+- Tobiasz Chodarewicz for review my code and helpful sugestions.
