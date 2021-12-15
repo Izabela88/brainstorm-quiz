@@ -335,9 +335,11 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 No bugs remaining.
 
+
 ## CREDITS
 
   - Code Institute for the deploytment terminal.
+
 
 ### CODE
 
@@ -345,6 +347,7 @@ While coding for some problems and inspirations with Python code, I looked for a
 
 - [W3School](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
+
 
 ### CONTENT
 

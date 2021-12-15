@@ -82,9 +82,9 @@ def start_game_menu(player: Player) -> Questions:
             range_list=["s"]
         )
         if player.game_level == "normal":
-            questions = Questions(10)
+            questions = Questions(1)
         else:
-            questions = Questions(20)
+            questions = Questions(1)
         questions.draw_questions()
         return questions
 
