@@ -13,7 +13,6 @@ from rich.theme import Theme
 from rich.prompt import Confirm
 
 
-
 custom_theme = Theme(
     {
         "info": "bold dark_blue",
@@ -33,7 +32,7 @@ q_title = """
 md1 = """
 # Your goal is to collect as many points as possible.
 # To become a Brainstorm Champion, you have to answer all the questions.
-# But be careful! 
+# But be careful!
 # The total playing time also counts! HAVE FUN!
 """
 
@@ -53,7 +52,7 @@ def run_brainstorm():
         enter_game = input()
         if len(enter_game) > 0:
             console.print(
-                "Please press ENTER to start game!", style="danger", 
+                "Please press ENTER to start game!", style="danger",
                 justify="left"
             )
             continue
@@ -71,7 +70,7 @@ def handle_menu() -> int:
         print(f"{key} - {value.upper()}")
 
     return input_validate(
-        "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3], 
+        "\nENTER YOUR CHOICE: ", is_int=True, range_list=[1, 2, 3],
         max_length=1
     )
 
@@ -79,7 +78,7 @@ def handle_menu() -> int:
 def start_game_menu(player: Player) -> Questions:
     while True:
         input_validate(
-            "\nTYPE s TO START BRAINSTORM QUIZ: ", is_int=False, 
+            "\nTYPE s TO START BRAINSTORM QUIZ: ", is_int=False,
             range_list=["s"]
         )
         if player.game_level == "normal":
@@ -108,19 +107,12 @@ def champion_type(player) -> None:
     ch_txt3 = "WOW! YOUR KNOWLEDGE IS IMPRESSIVE!"
     ch_txt4 = "YOU BECOME A GREATEST CHAMPION OF BRAINSTORM QUIZ "
     ch_txt5 = "IN THE WHOLE GALAXY!!!\n"
-    
-    ch_type1 = Panel.fit(Markdown(ch_txt1 + ch_txt2,
-        justify="center"),
-        width=60,
-        style="gold1",
-    )
-    ch_type2 = Panel.fit(
-        Markdown(ch_txt3 + ch_txt4 + ch_txt5, 
-        justify="center"),
-        width=60,
-        style="gold1",
-    )
-    
+    ch_type1 = Panel.fit(Markdown(
+        ch_txt1 + ch_txt2, justify="center"
+        ), width=60, style="gold1")
+    ch_type2 = Panel.fit(Markdown(
+        ch_txt3 + ch_txt4 + ch_txt5, justify="center"
+        ), width=60, style="gold1")
     if player.game_level == "normal":
         console.print(ch_type1)
     else:
@@ -142,9 +134,9 @@ def show_lifeline_qty(player):
         l_txt = f"LIFELINE{l_suffix}"
         console.print(f"[warning]YOU HAVE {player.lifeline_qty} " + l_txt)
 
+
 def new_game(player) -> bool:
     continue_game = False
-
     if not player.name:
         name = input_validate(
             "\nPLEASE TYPE YOUR NAME: ",
@@ -156,7 +148,7 @@ def new_game(player) -> bool:
         )
         player.name = name
         w_txt = "welcome to BRAINSTORM QUIZ!"
-        console.print(f"\n[info]Hello {player._name} " + w_txt) 
+        console.print(f"\n[info]Hello {player._name} " + w_txt)
 
     player.pick_game_level()
     questions = start_game_menu(player)
@@ -164,7 +156,6 @@ def new_game(player) -> bool:
     player.start_game_time = time.time()
     player.score = 0
     question_number = 1
-   
     while True:
         try:
             next_game_question = questions.next_question()
@@ -176,7 +167,6 @@ def new_game(player) -> bool:
             if q is True:
                 continue_game = True
             break
-        
         show_question_no(question_number)
         next_game_question.print_question()
 
@@ -194,8 +184,10 @@ def new_game(player) -> bool:
                 player.lifeline_qty -= 1
                 next_game_question.lifeline()
             if player.lifeline_qty == 0:
-                console.print("OUCH! YOU DON'T HAVE ANY LIFELINES!", 
-                style="danger")
+                console.print(
+                    "OUCH! YOU DON'T HAVE ANY LIFELINES!",
+                    style="danger"
+                    )
             answer = input_validate(
                 "\nYOUR ANSWER IS: ",
                 is_int=False,
@@ -218,9 +210,9 @@ def new_game(player) -> bool:
             q = Confirm.ask("Do you want to play again?")
             if q is True:
                 continue_game = True
-                c = "COOL!"
-                console.print(f"[info]\nWOW! YOU DON'T GIVE UP {player._name}! "
-                + c)
+                c1 = f"[info]\nWOW! YOU DON'T GIVE UP {player._name}! "
+                c2 = "COOL!"
+                console.print(c1 + c2)
             break
     return continue_game
 

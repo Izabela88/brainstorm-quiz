@@ -32,7 +32,9 @@ class ScoreBoard:
             best_scores[self.game_level].append(player_score)
         else:
             best_scores[self.game_level] = [player_score]
-        best_scores[self.game_level] = self.sort_scores(best_scores[self.game_level])
+        best_scores[self.game_level] = self.sort_scores(
+            best_scores[self.game_level]
+            )
         self.save_best_scores(best_scores)
 
     def is_score_qualified(self) -> bool:
@@ -58,11 +60,14 @@ class ScoreBoard:
         self.save_best_scores(best_scores)
         if is_qualified == False:
             console.print(
-                f"[bold yellow1]\nWell...{self.player_name} you did not qualify for best scores board this time, but don't give up!\n"
+                f"[bold yellow1]\nWell...{self.player_name}" +
+                " you did not qualify for best scores board this time" +
+                " but don't give up!\n"
             )
         else:
             console.print(
-                f"[bold yellow1]\nHooray!!! {self.player_name} you have qualified for best scores board!\n"
+                f"[bold yellow1]\nHooray!!! {self.player_name}" +
+                " you have qualified for best scores board!\n"
             )
         return is_qualified
 
@@ -72,8 +77,9 @@ class ScoreBoard:
             console.print("\nTHERE ARE NO RESULTS YET!!\n", style="dark_blue")
         for k, v in best_scores.items():
             score_title = Panel.fit(
-                Markdown(f"\n10 {k.upper()} LEVEL BEST SCORES:\n", 
-                justify="center"),
+                Markdown(
+                    f"\n10 {k.upper()} LEVEL BEST SCORES:\n", justify="center"
+                    ),
                 width=60,
                 style="bold dark_blue",
             )
