@@ -118,7 +118,9 @@ In order for a player to be on the scoreboard, not only the score counts, but al
     - Type 's' to start game.
   
   ![Enter Name](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/enter-name.jpg)
+
   ![Choose Game Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/game-level.jpg)
+  
   ![Start Game](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/start-game.jpg)
 
 
@@ -248,22 +250,29 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   - Input validation:
 
     - No blank fields.
+
     ![Blank](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/blank-field.jpg)
 
     - Right input.
+
     ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/integer.jpg)
+
     ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/valid-answer.jpg)
 
     - Too few characters.
+
     ![Too few](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/too-low-characters.jpg)
 
     - Too many characters.
+
     ![Too many](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/too-many-characters.jpg)
     
     - Play again.
+
     ![play again](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/play-again.jpg)
     
     - No lifelines
+
     ![No lifelines](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline-last-time.jpg)
     
 
