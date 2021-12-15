@@ -20,7 +20,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   - [User Stories](#user-stories)
   - [Design](#design)
   - [Scope](#scope)
-    - [Structure](#structure)
+    - [Aplication Flow Chart](#aplication-flow-chart)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
   - [Languages Used](#languages-used)
