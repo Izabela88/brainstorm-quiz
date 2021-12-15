@@ -35,11 +35,11 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   - [Content](#content)
   - [Acknowledgements](#acknowledgements)
 
-## User Experience
+## USER EXPERIENCE
 
-- ### User stories
+- ### USER STORIES
 
-  - #### Visitor Goals
+  - #### VISITOR GOALS
 
     - As the Visitor:
 
@@ -52,23 +52,26 @@ In order for a player to be on the scoreboard, not only the score counts, but al
       7. I want to be able exit game.
 
   
-- ### Design
+- ### DESIGN
 
   This is a game is displayed in the terminal so the design options are very limited. However, I used an external library that allowed me to add colors and emojis. Thanks to this, the game is legible and more player-friendly.
 
-  - #### Colour Scheme
+  - #### COLOR SCHEME
 
   Colors used: yellow, blue, purple, green and red.
 
 
-- ### Scope
+- ### SCOPE
 
-  - #### Structure
+  - #### APLICATION FLOW CHART
 
-## Features
+  ![Flow chart]()
+  ![Flow chart]()
+
+## FEATURES
 
 
-- #### Main Menu
+- #### MAIN MENU
 
 - I want to easily understand the main purpose of the game.
 - I want to know the rules of the game.
@@ -79,7 +82,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Main Menu](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg)
 
 
-- #### Game Menu
+- #### GAME MENU
 
 - I want to be able to easily navigate throughout the game options.
 
@@ -89,7 +92,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Game Menu](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/game-menu.jpg)
 
 
-- #### Scoreboard
+- #### SCOREBOARD
 
 - I want to be able to see the results of my game.
 
@@ -108,7 +111,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Scoreboard Message](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/score-board-yes-msg.jpg)
   
 
-- #### New Game
+- #### NEW GAME
 
 -  I want to know clearly what the steps of the game are.
 
@@ -120,11 +123,11 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Enter Name](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/enter-name.jpg)
 
   ![Choose Game Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/game-level.jpg)
-  
+
   ![Start Game](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/start-game.jpg)
 
 
-- #### Game Levels
+- #### GAME LEVELS
 
 - I want to know the rules of the game.
 
@@ -156,7 +159,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
     ![Expert Level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/complete-game.jpg)
 
 
-- #### Begin Game
+- #### BEGIN GAME
 
   - After pressing the letter 's', the message "Let's begin" appears.
   - A countdown of five seconds begins until the game begins.
@@ -164,7 +167,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Begin Game](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/begin-game.jpg)
 
 
-- #### Lifelines
+- #### LIFELINES
 
   - The player has the option to use Lifeline during the game.
   - When a player uses Lifeline, of the four answers, two wrong ones are removed.
@@ -173,7 +176,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Lifeline](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline.jpg)
 
 
-- #### Questions and Answers
+- #### QUESTIONS AND ANSWERS
 
   - The questions are numbered so that the player knows where he is in the game.
   - The questions are highlighted in a different color to make them legible.
@@ -191,7 +194,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
   
 
-- #### Play Again
+- #### PLAY AGAIN
 
 - I want to be able to play again.
 
@@ -202,7 +205,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   ![Play again](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/play-again-y-msg.jpg)
 
 
-- #### Finish Game
+- #### FINISH GAME
 
 - I want to be able exit game.
 
@@ -214,14 +217,14 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
 
 
-## Technologies Used
+## TECHNOLOGIES USED
 
-### Languages Used
+### LANGUAGES USED
 
 - [Python 3.8.2](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 
-### Frameworks, Libraries and Programs Used
+### FRAMEWORKS AND LIBRARIES USED
 
 1. [Rich:](https://rich.readthedocs.io/en/latest/introduction.html)
    - Rich is a Python library for writing rich text (with color and style) to the terminal, and for displaying advanced content such as tables, markdown, and syntax highlighted code.
@@ -231,7 +234,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
    - Used for checking if code is correct.
 
 
-## Code Organisation
+## CODE ORGANISATION
 
 - As the code grew, the I decided to split all Python code for parts:
 
@@ -245,7 +248,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 - The player's score is saved to a JSON file. 
 
 
-## Data Validation
+## DATA VALIDATION
 
   - Input validation:
 
@@ -276,7 +279,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
     ![No lifelines](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline-last-time.jpg)
     
 
-## Testing
+## TESTING
 
 I have manually tested this project by doing the following:
 
@@ -284,7 +287,7 @@ I have manually tested this project by doing the following:
   - Giving invalid input.
 
 
-## Deployment
+## DEPLOYMENT
 
 This project was deployed using Code institute's mock terminal for Heroku.
 
@@ -328,26 +331,26 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 > Unpacking objects: 100% (10/10), done.
 ```
 
-## Bugs
+## BUGS
 
 No bugs remaining.
 
-## Credits
+## CREDITS
 
   - Code Institute for the deploytment terminal.
 
-### Code
+### CODE
 
 While coding for some problems and inspirations with Python code, I looked for answers on websites:
 
 - [W3School](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 
-### Content
+### CONTENT
 
 - All content was written by the developer.
 
-### Acknowledgements
+### ACKNOWLEDGEMENTS
 
 - My Mentor for continuous helpful feedback.
 - Tobiasz Chodarweicz for review my code and helpful sugestion.
