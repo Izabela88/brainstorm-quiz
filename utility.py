@@ -1,5 +1,8 @@
-from rich import print
+from sys import stdout
+from time import sleep
+from rich.panel import Panel
 from rich.console import Console
+from rich.markdown import Markdown
 
 
 console = Console()
@@ -32,9 +35,7 @@ def input_validate(
             try:
                 user_input = int(user_input)
             except ValueError:
-                console.print(
-                    "Please type right input, must be integer\n", style="red"
-                    )
+                console.print("Please type right input, must be integer\n", style="red")
                 continue
 
         if range_list and user_input not in range_list:
@@ -45,3 +46,15 @@ def input_validate(
             )
             continue
         return user_input
+
+
+def time_counting() -> None:
+    start_msg = Panel.fit(
+        Markdown("\nLET'S BEGIN!", justify="center"), width=60, style="yellow1"
+    )
+    console.print(start_msg)
+    for i in range(5, 0, -1):
+        stdout.write("\r%d" % i)
+        stdout.flush()
+        sleep(1)
+    stdout.write("\n\n")

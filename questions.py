@@ -12,13 +12,24 @@ class Questions:
     def __init__(self, qty: int) -> None:
         self.qty = qty
         self.game_questions = []
+        self.question_number = 1
+
+    def show_question_no(self) -> None:
+        show_question_number = Panel.fit(
+            Markdown(
+                f"\nQUESTION NO. {self.question_number}:", justify="center"
+            ),
+            width=60,
+            style="bold dark_blue",
+        )
+        console.print(show_question_number)
 
     def draw_questions(self) -> None:
         raw_questions = load_from_file()
         for i in random.sample(raw_questions, k=self.qty):
             question = Question(
                 i["question"], i["answers"], i["correct_answer"]
-                )
+            )
             self.game_questions.append(question)
         return self.game_questions
 
@@ -28,8 +39,8 @@ class Questions:
 
 class Question:
     def __init__(
-        self, question: str, answers: List[str], correct_answer: int) \
-            -> None:
+        self, question: str, answers: List[str], correct_answer: int
+    ) -> None:
         self.question = question
         self.answers = answers
         self.correct_answer = correct_answer
