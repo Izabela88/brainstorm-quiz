@@ -271,6 +271,10 @@ The ten best game results hit the scoreboard.
 
     ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/valid-answer.jpg)
 
+    ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/start-game.jpg)
+
+    ![Right input](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/enter.jpg)
+
     - Too few characters.
 
     ![Too few](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/validation/too-low-characters.jpg)
