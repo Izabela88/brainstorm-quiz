@@ -53,7 +53,7 @@ class ScoreBoard:
         is_qualified = False
 
         best_scores = self.get_best_scores()
-
+        self.save_to_file(best_scores)
         level_scores = best_scores.get(self.game_level, [])
         level_scores_sorted = self.sort_scores(level_scores)
         if level_scores:
@@ -72,14 +72,13 @@ class ScoreBoard:
         self.save_to_file(best_scores)
         if is_qualified is False:
             console.print(
-                f"[bold yellow1]\nWell...{self.player_name}"
-                + " you did not qualify for best scores board this time"
-                + " but don't give up!\n"
+                f"[yellow1]\nWell...{self.player_name} you did not qualify"
+                " for best scores board this time but don't give up!\n"
             )
         else:
             console.print(
-                f"[bold yellow1]\nHooray!!! {self.player_name}"
-                + " you have qualified for best scores board!\n"
+                f"[bold yellow1]\nHooray!!! {self.player_name} you have"
+                " qualified for best scores board!\n"
             )
         return is_qualified
 
