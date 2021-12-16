@@ -8,8 +8,7 @@ The player can choose between two difficulty levels: Normal and Expert.
 After completing the game on a Normal level, the player receives the title "THE GREATEST CHAMPION IN THE EARTH!".
 After completing the game on an Expert-level, the player receives the title "THE GREATEST CHAMPION IN THE WHOLE GALAXY".
 
-The player scores are recorded on the scoreboard, so the player has the opportunity to check his score. Only the top 10 scores count.
-The ten best game results hit the scoreboard.
+The player scores are recorded on the scoreboard, so the player has the opportunity to check his score. Only the top 10 scores hit the scoreboard.
 
 
 <h2 align="center"><img src="https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg"></h2>
