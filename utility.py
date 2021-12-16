@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.markdown import Markdown
 
 
+# rich library
 console = Console()
 
 

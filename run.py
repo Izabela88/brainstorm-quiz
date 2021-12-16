@@ -14,6 +14,7 @@ from rich.theme import Theme
 from rich.prompt import Confirm
 
 
+# rich library
 custom_theme = Theme(
     {
         "info": "bold dark_blue",
@@ -24,6 +25,7 @@ custom_theme = Theme(
     }
 )
 
+# rich library
 console = Console(theme=custom_theme)
 
 

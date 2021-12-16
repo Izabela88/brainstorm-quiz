@@ -8,6 +8,7 @@ from rich.markdown import Markdown
 from rich import print
 
 
+# rich library
 console = Console()
 
 
