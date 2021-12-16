@@ -35,7 +35,7 @@ class Player:
             name = input_validate(
                 "\nPLEASE TYPE YOUR NAME: ",
                 is_int=False,
-                range_list=None,
+                allowed_list=None,
                 case_sensitive=True,
                 max_length=20,
                 min_length=3,
@@ -92,7 +92,7 @@ class Player:
             level = input_validate(
                 "\nENTER YOUR CHOICE: ",
                 is_int=True,
-                range_list=[1, 2],
+                allowed_list=[1, 2],
                 min_length=1,
                 max_length=1,
             )

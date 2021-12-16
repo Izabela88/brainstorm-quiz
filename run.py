@@ -93,7 +93,7 @@ def handle_menu() -> int:
     return input_validate(
         "\nENTER YOUR CHOICE: ",
         is_int=True,
-        range_list=[1, 2, 3],
+        allowed_list=[1, 2, 3],
         max_length=1,
     )
 
@@ -118,7 +118,7 @@ def new_game(player: Player) -> bool:
     player.pick_game_level()
     questions = init_questions(player)
     input_validate(
-        "\nTYPE s TO START BRAINSTORM QUIZ: ", is_int=False, range_list=["s"]
+        "\nTYPE s TO START BRAINSTORM QUIZ: ", is_int=False, allowed_list=["s"]
     )
     time_counting()
     player.start_game_time = time.time()
@@ -138,7 +138,7 @@ def new_game(player: Player) -> bool:
         answer = input_validate(
             "\nYOUR ANSWER IS: ",
             is_int=False,
-            range_list=["a", "b", "c", "d", "h"],
+            allowed_list=["a", "b", "c", "d", "h"],
             max_length=1,
             min_length=1,
         )
@@ -147,7 +147,7 @@ def new_game(player: Player) -> bool:
             answer = input_validate(
                 "\nYOUR ANSWER IS: ",
                 is_int=False,
-                range_list=["a", "b", "c", "d"],
+                allowed_list=["a", "b", "c", "d"],
                 max_length=1,
                 min_length=1,
             )
