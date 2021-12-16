@@ -114,7 +114,8 @@ def new_game(player: Player) -> bool:
     :rtype: bool
     """
     continue_game = False
-    player.is_new_player()
+    if not player.name:
+        player.player_name()
     player.pick_game_level()
     questions = init_questions(player)
     input_validate(
