@@ -5,11 +5,11 @@
 The goal of the Brainstorm Quiz is to become the Brainstorm Champion. To achieve this, the player must answer all questions.
 The player can choose between two difficulty levels: Normal and Expert. 
 
-After completing the game on Normal level, the player receives the title "THE GREATEST CHAMPION IN THE EARTH!".
-After completing the game on Expert level, the player receives the title "THE GREATEST CHAMPION IN THE WHOLE GALAXY".
+After completing the game on a Normal level, the player receives the title "THE GREATEST CHAMPION IN THE EARTH!".
+After completing the game on an Expert-level, the player receives the title "THE GREATEST CHAMPION IN THE WHOLE GALAXY".
 
-The player score are recorded on the score board, so the player has the opportunity to check his score. Only the top 10 scores count.
-In order for a player to be on the scoreboard, not only the score counts, but also the total playing time.
+The player scores are recorded on the scoreboard, so the player has the opportunity to check his score. Only the top 10 scores count.
+The ten best game results hit the scoreboard.
 
 
 <h2 align="center"><img src="https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg"></h2>
@@ -54,7 +54,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
   
 - ### DESIGN
 
-  This is a game is displayed in the terminal so the design options are very limited. However, I used an external library that allowed me to add colors and emojis. Thanks to this, the game is legible and more player-friendly.
+  This game is displayed in the terminal, so the design options are minimal. However, I used an external library to add colours and emojis. Thanks to this, the game is legible and more player-friendly.
 
   - #### COLOR SCHEME
 
@@ -76,7 +76,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 - I want to easily understand the main purpose of the game.
 - I want to know the rules of the game.
   
-  - Contains the name of the game and basic information about the rules of the game.
+  - Contains the name of the game and basic information about the game's rules.
   - Information on how to start the game is provided at the bottom.
   
   ![Main Menu](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/main-menu.jpg)
@@ -86,7 +86,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
 - I want to be able to easily navigate throughout the game options.
 
-  - It is divided into three categories: New Game, Best Scores and Exit.
+  - Game menu is divided into three categories: New Game, Best Scores and Exit.
   - The player can choose the option by entering the assigned number.
   
   ![Game Menu](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/game-menu.jpg)
@@ -96,7 +96,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
 - I want to be able to see the results of my game.
 
-  - Contains the top 10 game scores in two levels.
+  - Scoreboard contains the top ten game scores in two levels.
   
   ![Scoreboard](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/score-board.jpg)
 
@@ -148,11 +148,11 @@ In order for a player to be on the scoreboard, not only the score counts, but al
         - Contains 4 Lifelines.
         - After answering all the questions, the player receives the title: THE GREATEST CHAMPION IN THE WHOLE GALAXY.
 
-    - When a player selects a Expert difficulty level, a message will appear explaining the rules of the game for that difficulty:
+    - When a player selects an Expert difficulty level, a message will appear explaining the rules of the game for that difficulty:
 
     ![Expert level](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/expert-lvl-msg.jpg)
 
-    - After successfully completing the quiz, a message will appear stating that the player has earned the title based on their game level.
+    - After completing the quiz, a message will appear stating that the player has earned the title based on their game level.
 
     - Normal level:
 
@@ -165,7 +165,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
 - #### BEGIN GAME
 
-  - After pressing the letter 's', the message "Let's begin" appears.
+  - After pressing the letter 's', the message "Let's Begin" appears.
   - A countdown of five seconds begins until the game begins.
 
   ![Begin Game](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/begin-game.jpg)
@@ -174,8 +174,8 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 - #### LIFELINES
 
   - The player has the option to use Lifeline during the game.
-  - When a player uses Lifeline, of the four answers, two wrong ones are removed.
-  - The player always know How many lifelines left.
+  - Two wrong ones are removed from the four available answers when a player uses Lifeline.
+  - The player always know How many lifelines are left.
 
   ![Lifeline](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/use-lifeline.jpg)
 
@@ -187,13 +187,13 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 - #### QUESTIONS AND ANSWERS
 
   - The questions are numbered so that the player knows where he is in the game.
-  - The questions are highlighted in a different color to make them legible.
+  - The questions are highlighted in a different colour to make them legible.
   - To answer a question, the player should enter the appropriate letter.
   
   ![Questions](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/question.jpg)
 
-  - After the player answered, a message appears depending on whether the player answered correctly or not.
-  - For each correct answer the player gets 10 points, the wrong answer ends the game.
+  - After the player answers, a message appears depending on whether the player answered correctly or not.
+  - For each correct answer, the player gets 10 points. The wrong answer ends the game.
   - At the end of the game, information about the final score and time is displayed.
 
   ![Good answer](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/correct-answer.jpg)
@@ -208,7 +208,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
   - The player has the option to play again.
   - A query appears on the screen.
-  - To play again play must enter 'y', if he does not want to play again must select 'n'.
+  - To play again, play must enter 'y'. If he does not want to play again must select 'n'.
 
   ![Play again](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/play-again-y-msg.jpg)
 
@@ -217,7 +217,7 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 
 - I want to be able exit game.
 
-  - To end the game, the player can select number '3' from the game menu or enter the letter 'n' when is asked if he wants to play again.
+  - To end the game, the player can select the number  '3' from the game menu or enter the letter 'n' when is asked if he wants to play again.
   - Some goodbye messages appear when the game is over.
 
   ![Exit msg](https://github.com/Izabela88/brainstorm-quiz/blob/main/media/exit-msg.jpg)
@@ -247,10 +247,11 @@ In order for a player to be on the scoreboard, not only the score counts, but al
 - As the code grew, the I decided to split all Python code for parts:
 
   - run.py: contains the main code relating to the entire logic of the game
-  - questions.py: there are Questions objects which contain the code related to the questions
-  - score_board.py: there is Scoreboard object which contain the code related to the scoreboard
-  - player.py: there is Player object which contain the code related to the player
-  - utility.py: contains a function that validates inputs
+  - questions.py: there are Questions classes which contain the code related to the questions
+  - score_board.py: there is a Scoreboard class that contain the code related to the scoreboard
+  - player.py: there is a Player class that contain the code related to the player
+  - utility.py: contains a function that validates inputs and function which counts time to start the game
+  - messages.py: contains long sets of strings moved into this file to make the code more readable
 
 - The questions are taken from the local JSON file.
 - The player's score is saved to a JSON file. 
