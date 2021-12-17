@@ -262,13 +262,13 @@ The player scores are recorded on the scoreboard, so the player has the opportun
   
     - There is a Scoreboard class that contains the code related to the scoreboard. It includes methods that save player score, check if score is qualified to the scoreboard and display best scores.
 
-    - the class also contains three static methods which get the best scores, save scores to JSON file and sort scores.
+    - The class also contains three static methods which get the best scores, save scores to JSON file and sort scores.
 
   - player.py: 
   
     - There is a Player class that stores player name, score, game level, lifeline quantity and game time.
 
-    - It also contains methods which: display final results, display type of champion type, display lifelines quantity and trigger question lifeline logic, handles player game level choice and display game level info panel.
+    - It also contains methods which: display final results, display type of champion title, display lifelines quantity and trigger question lifeline logic, handles player game level choice and display game level info panel.
 
   - utility.py: 
   
