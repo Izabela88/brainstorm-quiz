@@ -74,12 +74,12 @@ class ScoreBoard:
         if is_qualified is False:
             console.print(
                 f"[yellow1]\nWell...{self.player_name} you did not qualify"
-                " for best scores board this time but don't give up!\n"
+                " for the best scores board this time but don't give up!\n"
             )
         else:
             console.print(
                 f"[bold yellow1]\nHooray!!! {self.player_name} you have"
-                " qualified for best scores board!\n"
+                " qualified for the best scores board!\n"
             )
         return is_qualified
 

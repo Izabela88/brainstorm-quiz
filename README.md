@@ -245,12 +245,38 @@ The player scores are recorded on the scoreboard, so the player has the opportun
 
 - As the code grew, the I decided to split all Python code for parts:
 
-  - run.py: contains the main code relating to the entire logic of the game
-  - questions.py: there are Questions classes which contain the code related to the questions
-  - score_board.py: there is a Scoreboard class that contain the code related to the scoreboard
-  - player.py: there is a Player class that contain the code related to the player
-  - utility.py: contains a function that validates inputs and function which counts time to start the game
-  - messages.py: contains long sets of strings moved into this file to make the code more readable
+  - run.py: 
+  
+    - Contains the main code relating to the entire logic of the game.
+
+  - questions.py:
+
+    - There are two classes that contain the code related to the questions.
+
+    - Class Questions store game questions and question numbers, and it also has a method that gets the next question and shows its number and method, which draw unique questions from JSON file.
+
+    - Class Question store single questions, answers and correct answers. It also has methods which: print question, a check answers correct and lifeline method which removes two incorrect answers and
+        call another method to print again question with only two answers.
+
+  - score_board.py: 
+  
+    - There is a Scoreboard class that contains the code related to the scoreboard. It includes methods that save player score, check if score is qualified to the scoreboard and display best scores.
+
+    - the class also contains three static methods which get the best scores, save scores to JSON file and sort scores.
+
+  - player.py: 
+  
+    - There is a Player class that stores player name, score, game level, lifeline quantity and game time.
+
+    - It also contains methods which: display final results, display type of champion type, display lifelines quantity and trigger question lifeline logic, handles player game level choice and display game level info panel.
+
+  - utility.py: 
+  
+    - Contains a function that validates inputs and function which counts time to start the game.
+
+  - messages.py: 
+  
+    - Contains long sets of strings moved into this file to make the code more readable
 
 - The questions are taken from the local JSON file.
 - The player's score is saved to a JSON file. 
