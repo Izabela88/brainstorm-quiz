@@ -255,7 +255,7 @@ The player scores are recorded on the scoreboard, so the player has the opportun
 
     - Class Questions store game questions and question numbers, and it also has a method that gets the next question and shows its number and method, which draw unique questions from JSON file.
 
-    - Class Question store single questions, answers and correct answers. It also has methods which: print question, a check answers correct and lifeline method which removes two incorrect answers and
+    - Class Question store single question, answers and correct answers. It also has methods which: print question, a check answers correct and lifeline method which removes two incorrect answers and
         call another method to print again question with only two answers.
 
   - score_board.py: 
