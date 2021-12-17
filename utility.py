@@ -41,7 +41,7 @@ def input_validate(
     :rtype: Union[str, int]
     """
     while True:
-        user_input = input(input_text)
+        user_input = input(input_text).strip()
         if case_sensitive is False:
             user_input = user_input.lower()
         if len(user_input) < 1:

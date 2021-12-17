@@ -48,14 +48,16 @@ def run_brainstorm():
             console.print(panel_1, style="info")
 
         _print_game_panel()
-        enter_game = input()
-        if len(enter_game) > 0:
-            console.print(
-                "Please press ENTER to start game!",
-                style="danger",
-                justify="left",
-            )
-            continue
+        while True:
+            enter_game = input()
+            if len(enter_game) > 0:
+                console.print(
+                    "Please press ENTER to start game!",
+                    style="danger",
+                    justify="left",
+                )
+                continue
+            break
         manage_menu_options()
 
 

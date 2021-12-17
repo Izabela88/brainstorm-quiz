@@ -46,8 +46,8 @@ class Player:
             min_length=3,
         )
         self._name = name
-        w_txt = "welcome to BRAINSTORM QUIZ!"
-        console.print(f"\n[info]Hello {self._name} " + w_txt)
+        welcome_msg = "welcome to BRAINSTORM QUIZ!"
+        console.print(f"\n[dark_blue]Hello {self._name} " + welcome_msg)
 
     def final_results(self) -> None:
         """Display player final stats"""
