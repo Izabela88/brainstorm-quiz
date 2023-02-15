@@ -1,7 +1,5 @@
 <h1 align="center">BRAINSTORM QUIZ GAME</h1>
 
-[View the live project here](https://brainstorm-quiz-game.herokuapp.com/)
-
 The goal of the Brainstorm Quiz is to become the Brainstorm Champion. To achieve this, the player must answer all questions.
 The player can choose between two difficulty levels: Normal and Expert. 
 
